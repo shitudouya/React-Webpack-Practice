@@ -7,10 +7,20 @@ const path = require("path");
 const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
-  entry: ["@babel/polyfill","./src/index.js"],
+  entry: ["@babel/polyfill", "./src/index.js"],
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "js/chunk.[hash:6].js"
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".less", ".css"],
+    alias: {
+      "@": path.resolve(__dirname, "./src")
+    }
+  },
+  externals:{
+    React:'react',
+    ReactDOM:'react-dom'
   },
   devServer: {
     port: 8010,
@@ -26,6 +36,19 @@ module.exports = {
     }
   },
   devtool: isDev ? "source-map" : "none",
+  optimization: {
+    splitChunks: {
+      minSize: 30000,
+      chunks: "all",
+      name: true,
+      cacheGroups: {
+        react: {
+          test: /react|react-dom/,
+          name: "react"
+        }
+      }
+    }
+  },
   module: {
     rules: [
       { test: /\.css$/, use: [miniCssExtractPlugin.loader, "css-loader", "postcss-loader"] },
@@ -43,7 +66,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ["babel-loader"]
       }
     ]
   },

@@ -1,13 +1,9 @@
-import React, { Component } from 'react'
-export default class App extends Component {
-  componentDidMount() {
-    console.log(Array.from(new Set([1,5,5,2,1,6,8])).sort((a,b)=>a-b))
-  }
+export default class App extends React.Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <p>Hello World</p>
-      </div>
-    )
+      </React.Fragment>
+    );
   }
 }

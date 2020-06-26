@@ -1,6 +1,4 @@
-import React from "react";
-import "./style/index.less";
-import ReactDOM from "react-dom";
-import App from "./App.jsx";
+import "@/style/index"; //@ --> src
+import App from "./App";
 
 ReactDOM.render(<App />, document.getElementById("root"));
