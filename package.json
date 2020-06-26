@@ -1,0 +1,23 @@
+{
+  "name": "React-Webpack-Practice",
+  "version": "1.0.0",
+  "description": "a demo  base on webpack  for react  from zero to build",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com.cnpmjs.org/shitudouya/React-Webpack-Practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
